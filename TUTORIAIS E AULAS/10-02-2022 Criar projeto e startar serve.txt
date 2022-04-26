@@ -1,7 +1,0 @@
-1 Navegar até a pasta do projeto
-
-2 php artisan make:controller NomeController
--- Cria o controller
-
-3 php artisan serve
--- inicia o server
