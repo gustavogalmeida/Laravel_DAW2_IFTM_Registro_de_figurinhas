@@ -15,7 +15,15 @@ return new class extends Migration
     {
         Schema::create('clubes', function (Blueprint $table) {
             $table->id();
+
+            
             $table->timestamps();
+        });
+        Schema::create('jogadores', function (Blueprint $tbale) {
+            $table->id();
+
+
+            $tabel->timestamps();
         });
     }
 
