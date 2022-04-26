@@ -1,0 +1,10 @@
+Clonar projeto
+git clone url_repositorio
+
+
+Atualizar libs de projeto
+composer update
+
+configurar arquivo .env
+
+rodar migrate

@@ -1,0 +1,9 @@
+php artisan make:model Aluno -m
+-- cria a classe app>models
+-- cria a migration database>migrations
+
+.env --local onde fica o nome, user e senha do BD
+routes>web.php --rotas
+
+conferir sintaxe de criar migration
+https://laravel.com/docs/9.x/migrations#column-method-string
