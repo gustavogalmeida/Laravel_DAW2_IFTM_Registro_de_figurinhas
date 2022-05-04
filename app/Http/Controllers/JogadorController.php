@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Jogador;
+use App\Models\Clube;
 
 class JogadorController extends Controller
 {
@@ -13,7 +15,14 @@ class JogadorController extends Controller
      */
     public function index()
     {
-        //
+        $jogador = new Jogador();
+        $jogadors = Jogador::All();
+        $clubes = Clubes::All();
+        return view("jogador.index", [
+            "jogador" => $jogador,
+            "jogadors" => $jogadors,
+            "clubes" => $clubes
+        ]);
     }
 
     /**
