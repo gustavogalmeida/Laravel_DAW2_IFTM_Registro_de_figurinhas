@@ -24,6 +24,12 @@
                     <a class="nav-link" href="/jogador">Jogadores</a>
                 </div>
             </nav>
+            <div class="alert alert-success">
+                Salvo com sucesso!
+            </div>
+            <div class="alert alert-danger">
+                Excluido com sucesso!
+            </div>
             @yield("formulario")
             @yield("tabela")
         </div>
