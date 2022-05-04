@@ -18,6 +18,12 @@
     </head>
     <body>
         <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="#">Clubes</a>
+                    <a class="nav-link" href="#">Jogadores</a>
+                </div>
+            </nav>
             @yield("formulario")
             @yield("tabela")
         </div>
