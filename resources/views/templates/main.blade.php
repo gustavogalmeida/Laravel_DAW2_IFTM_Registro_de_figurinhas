@@ -18,10 +18,10 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="#">Clubes</a>
-                    <a class="nav-link" href="#">Jogadores</a>
+                    <a class="nav-link" href="/clube">Clubes</a>
+                    <a class="nav-link" href="/jogador">Jogadores</a>
                 </div>
             </nav>
             @yield("formulario")
