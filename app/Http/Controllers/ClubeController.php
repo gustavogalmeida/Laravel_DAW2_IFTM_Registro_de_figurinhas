@@ -34,6 +34,8 @@ class ClubeController extends Controller
         $clube->nome = $request->get("nome");
         $clube->escudo = $request->get("escudo");
         $clube->save();
+        $request->Session()->flash("status", "salvo");
+        
         return redirect("/clube");
     }
 
@@ -47,9 +49,10 @@ class ClubeController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         Clube::destroy($id);
+        $request->Session()->flash("status", "excluido");
         return redirect("/clube");
     }
 }

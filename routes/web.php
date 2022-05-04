@@ -5,7 +5,7 @@ use App\Http\Controllers\ClubeController;
 use App\Http\Controllers\JogadorController;
 
 Route::resources([
-    "jogador" => AlunoController::class,
+    "jogador" => JogadorController::class,
     "clube" => ClubeController::class
 ]);
 

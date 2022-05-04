@@ -24,12 +24,19 @@
                     <a class="nav-link" href="/jogador">Jogadores</a>
                 </div>
             </nav>
+            
+            @if (Session::get("status")=="salvo")
             <div class="alert alert-success">
                 Salvo com sucesso!
             </div>
+            @endif
+            
+            @if (Session::get("status")=="excluido")
             <div class="alert alert-danger">
                 Excluido com sucesso!
             </div>
+            @endif
+
             @yield("formulario")
             @yield("tabela")
         </div>
