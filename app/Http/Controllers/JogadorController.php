@@ -17,7 +17,8 @@ class JogadorController extends Controller
     {
         $jogador = new Jogador();
         $jogadors = Jogador::All();
-        $clubes = Clubes::All();
+        $clubes = Clube::All();
+        
         return view("jogador.index", [
             "jogador" => $jogador,
             "jogadors" => $jogadors,
@@ -43,7 +44,22 @@ class JogadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->get("id") != ""){
+            $jogador = Jogador::Find($request->get("id"));
+        } else {
+            $jogador = new Jogador ();
+        }
+
+        $jogador->nome = $request->get("nome");
+        $jogador->clube_id = $request->get("clube_id");
+        $jogador->posicao = $request->get("posicao");
+        $jogador->possuo = $request->get("possuo");
+        $jogador->data = $request->get("data");
+        $jogador->save();
+
+        $request->session() ->flash("status", "salvo");
+
+        return redirect("/jogador");
     }
 
     /**

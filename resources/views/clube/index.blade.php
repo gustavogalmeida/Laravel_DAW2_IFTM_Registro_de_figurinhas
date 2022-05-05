@@ -6,7 +6,7 @@
     <br/>
     <h1>Cadastro de Clubes</h1>
     <form action="/clube" method="POST" class="row">
-        <div class="form-group col-9">
+        <div class="form-group col-6">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" 
                     @class([
@@ -19,14 +19,9 @@
                   {{ $errors->first("nome")}}      
             </div>
         </div>
-        <div class="form-group col-1">
+        <div class="form-group col-4">
             <label for="escudo">Escudo</label>
-            <input type="text" id="escudo" name="escudo" 
-                    @class([
-                        "form-control",
-                        "is-invalid" => ($errors->first('escudo') != "")  
-                    ])
-                value=" {{ $clube->escudo }} " 
+            <input type="file" id="escudo" name="escudo" class="form-control" required
             />
             <div class="invalid-feedback">
                   {{ $errors->first("escudo")}}      
