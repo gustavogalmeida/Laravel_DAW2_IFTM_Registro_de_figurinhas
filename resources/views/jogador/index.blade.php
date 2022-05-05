@@ -86,9 +86,11 @@
                     <td>{{ $jogador->nome }}</td>
                     <td>{{ $jogador->data }}</td>
                     <td>{{ $jogador->posicao }}</td>
-                    <td>{{ $jogador->possuo }}</td>                 
+                    <td>{{ $jogador->possuo }}</td>
                     <td>{{ $clube->nome }}</td>
-                    <td>teste</td>
+                    <td>
+                        <img src='{{ str_replace("public/", "storage/", $clube->escudo) }}' width="100"></img>
+                    </td>
                     <td> 
                         <a href="/jogador/{{ $jogador->id }}/edit" class="btn btn-warning">
                             <i class="bi bi-pencil-square"></i>Editar

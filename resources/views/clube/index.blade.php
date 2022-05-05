@@ -5,7 +5,7 @@
 @section("formulario")
     <br/>
     <h1>Cadastro de Clubes</h1>
-    <form action="/clube" method="POST" class="row">
+    <form action="/clube" method="POST" class="row" enctype="multipart/form-data">
         <div class="form-group col-6">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" 
@@ -60,7 +60,9 @@
             @foreach ($clubes as $clube)
                 <tr>
                     <td>{{ $clube->nome }}</td>
-                    <td></td>
+                    <td>
+                        <img src='{{ str_replace("public/", "storage/", $clube->escudo) }}' width="100"></img>
+                    </td>
                     <td> 
                         <a href="/clube/{{ $clube->id }}/edit" class="btn btn-warning">
                             <i class="bi bi-pencil-square"></i>Editar

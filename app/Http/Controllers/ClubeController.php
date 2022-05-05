@@ -36,6 +36,9 @@ class ClubeController extends Controller
         }
         $clube->nome = $request->get("nome");
         $clube->escudo = $request->get("escudo");
+
+        $clube->escudo = $request->file("escudo")->store("/public/clube");
+
         $clube->save();
         $request->Session()->flash("status", "salvo");
         
