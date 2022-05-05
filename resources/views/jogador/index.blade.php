@@ -40,7 +40,7 @@
         <div class="form-group col-1">
             <label for="possuo">Possuo</label>
             </br>
-            <input type="checkbox" name="possuo" value= "{{ $jogador->possuo }}"
+            <input type="checkbox" name="possuo" value= "X"
             />
         </div>
         <div class="form-group col-2">
@@ -53,3 +53,76 @@
         </div>
     </form>
 @endsection
+
+@section("tabela")
+    <br/>
+    <h1>Lista de Jogadores</h1>
+    <table class="table table-striped">
+        <colgroup>
+            <col width="250">
+            <col width="150">
+            <col width="30">
+            <col width="80">
+            <col width="100">
+            <col width="200">
+            <col width="80">
+            <col width="80">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de nascimento</th>
+                <th>Posição</th>
+                <th>Possuo?</th>
+                <th>Clube</th>
+                <th>Escudo</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($jogadors as $jogador)
+                <tr>
+                    <td>{{ $jogador->nome }}</td>
+                    <td>{{ $jogador->data }}</td>
+                    <td>{{ $jogador->posicao }}</td>
+                    <td>{{ $jogador->possuo }}</td>                 
+                    <td>{{ $clube->nome }}</td>
+                    <td>teste</td>
+                    <td> 
+                        <a href="/jogador/{{ $jogador->id }}/edit" class="btn btn-warning">
+                            <i class="bi bi-pencil-square"></i>Editar
+                        </a>
+                    </td>
+                    <td>
+                    <form method="POST" action="/jogador/{{ $jogador->id }}">
+								@csrf
+								<input type="hidden" name="_method" value="DELETE" />
+								<button type="button" class="btn btn-danger" onclick="excluir(this);">
+									<i class="bi bi-trash"></i> Excluir
+								</button>
+					</form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endsection 
+
+<script>
+	function excluir(btn) {
+		Swal.fire({
+			"title": "Deseja realmente excluir?",
+			"icon": "warning",
+			"showCancelButton": true,
+			"cancelButtonText": "Cancelar",
+			"confirmButtonText": "Confirmar",
+			"confirmButtonColor": "#3085d6",
+			"cancelButtonColor": "#d33"
+		}).then(function(result) {
+			if (result.isConfirmed) {
+				$(btn).parents("form").submit();
+			}
+		});
+	}
+</script>
